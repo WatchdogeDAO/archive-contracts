@@ -2,17 +2,17 @@
 pragma solidity ^0.6.9;
 
 contract Archivers {
-    mapping(bytes32 => bool) public archivers;
+    mapping(string => bool) public archivers;
 
-    function addArchiver(bytes32 twitterId) external {
+    function addArchiver(string calldata twitterId) public {
         archivers[twitterId] = true;
     }
 
-    function removeArchiver(bytes32 twitterId) external {
+    function removeArchiver(string calldata twitterId) public {
         archivers[twitterId] = false;
     }
 
-    function isArchiver(bytes32 twitterId) external view returns (bool) {
+    function isArchiver(string calldata twitterId) public view returns (bool) {
         return archivers[twitterId];
     }
 }
